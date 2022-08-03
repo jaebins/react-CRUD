@@ -1,0 +1,36 @@
+.post_head{
+    text-align: center;
+}
+#title{
+    margin-top: 20px;
+    padding: 5px;
+    text-align: center;
+    border: 1px solid gray;
+    font-size: 30px;
+}
+.postInfor{
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1px solid gray;
+    font-weight: bold;
+}
+#userId{
+    text-align: left;
+}
+#date{
+    text-align: right;
+}
+#description{
+    margin-top: 30px;
+    font-size: 20px;
+}
+.post_foot{
+    margin-top: 50px;
+    text-align: right;
+}
+#But_DeletePost{
+    margin-left: 10px;
+    width: 70px;
+    height: 40px;
+}

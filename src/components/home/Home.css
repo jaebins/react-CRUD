@@ -1,0 +1,28 @@
+.Home{
+  text-align: center;
+}
+.loginComponent_foot{
+  text-align: right;
+}
+table{
+  margin-left:auto; 
+  margin-right:auto;
+}
+th{
+  background-color: skyblue;
+  border: 1px solid black;
+  font-size: 20px;
+}
+td {
+  border: 1px solid black;
+  width: 20%;
+  height: 40px;
+}
+.posts_foot{
+  margin-top: 20px;
+  text-align: right;
+}
+#posts_writePost{
+  width: 100px;
+  height: 30px;
+}

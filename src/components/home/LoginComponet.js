@@ -54,10 +54,6 @@ function LoginComponent(){
             }
         })
     }
-
-    useEffect(() => {
-        console.log("로그인하세요.")
-    }, [])
     
     return(
         <div class="LoginComponent">

@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from "react"
 import axios from 'axios'
+import MainHead from "../MainHead"
+import "./Login.css"
 
 function LoginComponent(){
     const [inputId, setInputId] = useState('')
@@ -57,12 +59,14 @@ function LoginComponent(){
     
     return(
         <div class="LoginComponent">
-            <input type="text" id="input_id" onChange={handleInputId} placeholder='아이디를 입력해주세요.'></input><p/>
-            <input type="password" id="input_pw" onChange={handleInputPw} placeholder='비밀번호를 입력해주세요.'></input><p/>
-            <button onClick={login}>로그인</button><p/><p/>
-            <div class="loginComponent_foot">
-                <button id="but_register" onClick={register}>회원가입</button>
+            <MainHead/>
+            
+            <div class="login_body">
+                <input type="text" id="input_loginInfor" onChange={handleInputId} placeholder='아이디를 입력해주세요.'></input><p/>
+                <input type="password" id="input_loginInfor" onChange={handleInputPw} placeholder='비밀번호를 입력해주세요.'></input><p/>
+                <button id="login_body_loginBut" onClick={login}>로그인</button><p/><p/>
             </div>
+
         </div>
     )
 }

@@ -1,6 +1,7 @@
 import React, {useState} from "react";
-import "./WritePost.css"
+import "./WritePostPage.css"
 import axios from "axios"
+import MainHead from "../MainHead"
 
 function WritePost(){
     const [inputTitle, setInputTitle] = useState('')
@@ -29,6 +30,7 @@ function WritePost(){
                 window.location.href = "/"
             }
             else{
+                console.log(res.data)
                 alert("글 작성을 실패하였습니다.")
             }
         })
@@ -36,9 +38,8 @@ function WritePost(){
 
     return(
         <div class="WritePost">
-            <div class="WritePost_body">
-                <a href="/"><h1>메인으로</h1></a>
-            </div>
+            <MainHead/>
+            
             <div class="WritePost_body">
                 <input id="input_title" type="text" onInput={handleInputTitle} placeholder="제목을 입력하세요." size="80"></input><br/><br/>
                 <textarea id="input_description" onInput={handleInputDescription} placeholder="내용을 입력하세요." rows="40" cols="82"></textarea><br/><br/>

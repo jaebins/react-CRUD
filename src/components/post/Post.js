@@ -1,6 +1,7 @@
 import "./Post.css"
 import React, {useEffect, useState} from "react";
 import axios from "axios"
+import MainHead from "../MainHead"
 
 function Post(){
     const [result, setResult] = useState('')
@@ -44,20 +45,20 @@ function Post(){
 
     return(
         <div class="Post">
-            <div class="post_head">
-                <a href="/"><h1>메인으로</h1></a>
-            </div>
+            <MainHead/>
             <div class="post_body">
-                <div id="title">{result.title}</div>
-                <div class="postInfor">
-                    <div id="userId">유저명 : {result.userId}</div>
-                    <div id="date">{result.date}</div>
+                <div id="post_body_title">{result.title}</div>
+                <div class="post_body_postInfor">
+                    <div id="post_body_postInfor_userId">유저명 : {result.userId}</div>
+                    <div id="post_body_postInfor_date">{result.date}</div>
                 </div>
-                <div id="description">{result.description}</div>
+                <div id="post_body_description">{result.description}</div>
             </div>
             <div class="post_foot">
-                {userId == result.userId ? 
-                    <button id="But_DeletePost" onClick={() => deletePost()}>삭제</button> :
+                {userId == result.userId 
+                ? 
+                    <button id="post_foot_deleteBut" onClick={() => deletePost()}>삭제</button> 
+                :
                     <div></div>
                 }
             </div>

@@ -1,35 +1,39 @@
-.post_head{
-    text-align: center;
+.post_body{
+    margin-left: 40px;
+    margin-right: 40px;
 }
-#title{
+#post_body_title{
     margin-top: 20px;
     padding: 5px;
     text-align: center;
-    border: 1px solid gray;
-    font-size: 30px;
+    border: 2px solid gray;
+    font-size: 35px;
 }
-.postInfor{
+.post_body_postInfor{
     margin-top: 20px;
+    padding-bottom: 12px;
     display: flex;
     justify-content: space-between;
-    margin-bottom: 1px solid gray;
+    border-bottom: 2px solid rgb(45, 117, 226);
     font-weight: bold;
 }
-#userId{
+#post_body_postInfor_userId{
     text-align: left;
 }
-#date{
+#post_body_postInfor_date{
     text-align: right;
 }
-#description{
+#post_body_description{
+    margin-left: 40px;
+    margin-right: 40px;
     margin-top: 30px;
     font-size: 20px;
 }
 .post_foot{
-    margin-top: 50px;
+    margin-top: 100px;
     text-align: right;
 }
-#But_DeletePost{
+#post_foot_deleteBut{
     margin-left: 10px;
     width: 70px;
     height: 40px;

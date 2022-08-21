@@ -3,14 +3,14 @@
     margin-right: 40px;
 }
 #post_body_title{
-    margin-top: 20px;
+    margin-top: 50px;
     padding: 5px;
     text-align: center;
     border: 2px solid gray;
     font-size: 35px;
 }
 .post_body_postInfor{
-    margin-top: 20px;
+    margin-top: 30px;
     padding-bottom: 12px;
     display: flex;
     justify-content: space-between;
@@ -23,10 +23,15 @@
 #post_body_postInfor_date{
     text-align: right;
 }
-#post_body_description{
-    margin-left: 40px;
-    margin-right: 40px;
+#post_body_image{
     margin-top: 30px;
+    width: 90%;
+    height: 90%;
+}
+#post_body_description{
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 10px;
     font-size: 20px;
 }
 .post_foot{

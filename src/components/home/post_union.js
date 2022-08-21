@@ -15,7 +15,6 @@ function Posts(){
             url: 'http://localhost:5000/getPosts'
         }).then((res) => {
             setItems(res.data)
-            console.log(res.data)
         })
     }, [])
 

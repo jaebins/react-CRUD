@@ -3,6 +3,7 @@ const app = express()
 const cors = require('cors')
 const fs = require('fs')
 const mysql = require("mysql")
+const multer = require('multer')
 
 app.use(cors())
 
@@ -55,15 +56,23 @@ app.post("/getPosts", (req, res) => {
     })
 })
 
-app.post("/writePostEvent", (req, res) => {
-    var sql = `INSERT INTO posts (title, description, date, userId) VALUES (?, ?, now(), ?)`
-    sqlCon.query(sql, [req.query.title, req.query.description, req.query.userId], (err, data) => {
+app.post("/deletePost", (req, res) => {
+    var sql = "DELETE FROM posts WHERE ID=?"
+    sqlCon.query(sql, [req.query.ID], (err, data) => {
         if(err)
-            res.send(err)
+        res.send(err)
         else
-            res.send({"postResult" : "1"})
+        res.send({"deleteResult" : "1"})
     })
 })
+
+var storage = multer.diskStorage({
+    destination: "server/files/",
+    filename: (req, file, cb) => {
+        cb(null, `${Date.now()}_${file.originalname}`)
+    }
+})
+var upload = multer({ storage: storage }).single('image'); 
 
 app.post("/getPost", (req, res) => {
     var sql = "SELECT *FROM posts WHERE ID=?"
@@ -75,14 +84,29 @@ app.post("/getPost", (req, res) => {
     })
 })
 
-app.post("/deletePost", (req, res) => {
-    var sql = "DELETE FROM posts WHERE ID=?"
+app.post("/getPost_sendFile", (req, res) => {
+    var sql = "SELECT imageName FROM posts WHERE ID=?"
     sqlCon.query(sql, [req.query.ID], (err, data) => {
         if(err)
             res.send(err)
         else
-            res.send({"deleteResult" : "1"})
+            res.sendFile(data[0].imageName, { root: "server/files" })
     })
+})
+
+app.post("/writePostEvent", upload, (req, res) => {
+    var sql = `INSERT INTO posts (title, description, date, userId, imageName) VALUES (?, ?, now(), ?, ?)`
+    sqlCon.query(sql, [req.query.title, req.query.description, req.query.userId, req.query.imageName], (err, data) => {
+        if(err)
+            res.send(err)
+        else
+            res.send({"postResult" : "1"})
+    })
+})
+
+app.post("/writePostEvent_receiveFile", upload, (req, res) => {
+    console.log(req.file)
+    res.send(req.file.filename)
 })
 
 const port = 5000

@@ -10,6 +10,19 @@ function Post(){
     useEffect(() => {
         var urlSearch = new URLSearchParams(window.location.search);
         var postId = urlSearch.get("ID");
+
+        axios({
+            method: "post",
+            url: "http://localhost:5000/getPost_sendFile",
+            params: {
+                ID: postId
+            },
+            responseType: "blob"
+        }).then(res => {
+            const url = window.URL.createObjectURL(new Blob([res.data]))
+            document.getElementById("post_body_image").src = url
+        })
+
         axios({
             method: "post",
             url: "http://localhost:5000/getPost",
@@ -52,6 +65,7 @@ function Post(){
                     <div id="post_body_postInfor_userId">유저명 : {result.userId}</div>
                     <div id="post_body_postInfor_date">{result.date}</div>
                 </div>
+                <img id="post_body_image"></img>
                 <div id="post_body_description">{result.description}</div>
             </div>
             <div class="post_foot">

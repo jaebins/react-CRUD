@@ -3,6 +3,7 @@ body{
   margin: 0px;
   margin-left: 120px;
   margin-right: 120px;
+  background: linear-gradient(to right, #7ed7eb, #cbadda); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 table{
   text-align: center;
@@ -10,10 +11,11 @@ table{
   margin-right:auto;
 }
 th{
-  background-color: skyblue;
+  background-color: rgb(170, 101, 155);
   font-size: 20px;
 }
 td {
+  background-color: white;
   border: 1px solid gray;
   height: 40px;
   font-size: 17px;
